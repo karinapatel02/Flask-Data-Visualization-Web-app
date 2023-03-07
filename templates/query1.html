@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+    <!-- <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script> -->
+</head>
+<body>
+    <h2>Karina Patel</h2>
+    <h2>UTA ID - 1001960022 </h2>
+    <center>
+    <canvas id="myChart" width="500" height="500"></canvas>
+    <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['mag < 1', 'mag 1 to 2','mag 2 to 3', 'mag 3 to 5'],
+            datasets: [{
+                label: 'Number of mags',
+                data: {{ y | safe }},
+                backgroundColor: [
+                    'rgba(75, 192, 192)',
+                ],
+                lineTension: 0.1,
+                datalabels: {
+                    anchor:'end',
+                    align: 'top'
+                }
+            }]
+        },
+        options: {
+            responsive: false,
+            title: {
+                display: true,
+                text: 'Comparison between magnitude'
+            },
+            scales: {
+                     x: {
+                        title: {
+                            display: true,
+                            text: 'Range of Magnitude'
+                        }
+                     }
+                }
+        },
+        plugins: [ChartDataLabels]
+    });
+    </script>
+    </center>
+</body>
+</html>

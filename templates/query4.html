@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+</head>
+<body>
+    <h2>Karina Patel</h2>
+    <h2>UTA ID - 1001960022 </h2>
+    <center>
+    <canvas id="myChart" width="500" height="500"></canvas>
+    <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['12:00AM','1:00AM','2:00AM','3:00AM','4:00AM','5:00AM'],
+            datasets: [{
+                label: 'Number of mags at night',
+                data: {{ qy4 | safe }},
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgba(75, 192, 192)',
+                "blue",
+                "yellow"
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: false,
+            title: {
+                display: true,
+                text: 'Number of magnitude at night'
+            },
+            plugins: {
+                labels: {
+                    render: 'percentage',
+                    position: 'inside'
+                }
+            }
+        },
+        // plugins: [ChartDataLabels]
+    });
+    </script>
+    </center>
+</body>
+</html>

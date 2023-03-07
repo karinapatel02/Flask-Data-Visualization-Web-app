@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+</head>
+<body>
+    <h2>Karina Patel</h2>
+    <h2>UTA ID - 1001960022 </h2>
+    <center>
+    <canvas id="scatterChart" width="500" height="500"></canvas>
+    <script>
+            var ctx = document.getElementById('scatterChart').getContext('2d');
+            var pieChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    labels: ['Mag','Depth'],
+                    datasets: [{
+                        label: 'Comparison between mag and depth',
+                        data: {{ qy3 | safe }},
+                        borderColor: "blue",
+                        backgroundColor: "blue",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                responsive: false,
+                scales: {
+                     x: {
+                        title: {
+                            display: true,
+                            text: 'Depth'
+                        }
+                     },
+                     y: {
+                        title: {
+                            display: true,
+                            text: 'Magnitude'
+                        }
+                     }
+                }
+            }
+            });
+            
+    </script>
+    </center>
+</body>
+</html>
